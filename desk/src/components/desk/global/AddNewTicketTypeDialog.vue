@@ -77,7 +77,7 @@
 								}
 							"
 							class="mr-auto"
-							>Add</Button
+							>Adicionar</Button
 						>
 					</div>
 				</div>

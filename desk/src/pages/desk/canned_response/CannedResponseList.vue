@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle title="Canned Responses">
+    <PageTitle title="Modelos de respostas">
       <template #right>
         <Button
-          label="New canned response"
+          label="Novo modelo de resposta"
           theme="gray"
           variant="solid"
           @click="showNewDialog = true"
@@ -36,7 +36,7 @@ import { ListView } from "@/components";
 import AddNewCannedResponsesDialog from "@/components/desk/global/AddNewCannedResponsesDialog.vue";
 
 const showNewDialog = ref(false);
-const emptyMessage = "No Canned Responses Found";
+const emptyMessage = "Nenhum modelo de resposta encontrado";
 const columns = [
   {
     label: "Name",
@@ -44,7 +44,7 @@ const columns = [
     width: "w-80",
   },
   {
-    label: "Owner",
+    label: "Criado Por",
     key: "owner",
     width: "w-96",
   },
@@ -69,7 +69,7 @@ const responses = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Canned responses",
+    title: "Modelos de respostas",
   };
 });
 </script>

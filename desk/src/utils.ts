@@ -21,7 +21,7 @@ export async function copy(s: string) {
   const { copy: c } = useClipboard();
   c(s).then(() =>
     createToast({
-      title: "Copied to clipboard",
+      title: "Copiado para a área de transferência",
       icon: "check",
       iconClasses: "text-green-600",
     })

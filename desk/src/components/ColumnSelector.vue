@@ -1,7 +1,7 @@
 <template>
   <NestedPopover>
     <template #target>
-      <Button label="Columns" theme="gray" variant="outline">
+      <Button label="Colunas" theme="gray" variant="outline">
         <template #prefix>
           <LucideColumns class="h-4 w-4" />
         </template>

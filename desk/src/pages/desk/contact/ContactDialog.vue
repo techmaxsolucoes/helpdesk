@@ -15,7 +15,7 @@
           <FileUploader @success="(file) => updateImage(file)">
             <template #default="{ uploading, openFileSelector }">
               <Button
-                :label="contact.doc?.image ? 'Change photo' : 'Upload photo'"
+                :label="contact.doc?.image ? 'Mudar foto' : 'Enviar foto'"
                 :loading="uploading"
                 @click="openFileSelector"
               />
@@ -23,7 +23,7 @@
           </FileUploader>
           <Button
             v-if="contact.doc?.image"
-            label="Remove photo"
+            label="Remover foto"
             @click="updateImage(null)"
           />
         </div>
@@ -32,15 +32,15 @@
             <div class="text-xs">Emails</div>
             <MultiSelect
               v-model:items="emails"
-              placeholder="john.doe@example.com"
+              placeholder="jose@exemplo.com"
               :validate="validateEmail"
             />
           </div>
           <div class="space-y-1">
-            <div class="text-xs">Phone Nos</div>
+            <div class="text-xs">Telefones</div>
             <MultiSelect
               v-model:items="phones"
-              placeholder="+91 98765 43210"
+              placeholder="+55 11 912 345 678"
               :validate="validatePhone"
             />
           </div>
@@ -107,12 +107,12 @@ const contact = createDocumentResource({
   setValue: {
     onSuccess() {
       createToast({
-        title: "Contact updated",
+        title: "Contato atualizado",
         icon: "check",
         iconClasses: "text-green-500",
       });
     },
-    onError: useError({ title: "Error updating contact" }),
+    onError: useError({ title: "Erro ao atualizar o contato" }),
   },
 });
 
@@ -120,7 +120,7 @@ const options = computed(() => ({
   title: contact.doc?.name,
   actions: [
     {
-      label: "Save",
+      label: "Salvar",
       theme: "gray",
       variant: "solid",
       onClick: () => update(),
@@ -150,7 +150,7 @@ function updateImage(file) {
 
 function validateEmail(input) {
   const success = zod.string().email().safeParse(input.value).success;
-  if (!success) return "Invalid email";
+  if (!success) return "Email inválido!";
 }
 
 function validatePhone(input) {
@@ -160,6 +160,6 @@ function validatePhone(input) {
     .min(10)
     .max(15)
     .safeParse(input.value).success;
-  if (!success) return "Invalid phone number";
+  if (!success) return "Nº de telefone inválido!";
 }
 </script>

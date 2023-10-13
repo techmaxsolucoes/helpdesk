@@ -10,7 +10,7 @@
           </div>
         </Tooltip>
         <Icon v-if="isPinned" icon="lucide:dot" class="text-gray-500" />
-        <Badge v-if="isPinned" label="Pinned" theme="blue" variant="outline" />
+        <Badge v-if="isPinned" label="Fixado" theme="blue" variant="outline" />
       </div>
       <div class="flex items-center gap-1">
         <Badge label="Comment" theme="green" variant="outline" />
@@ -58,7 +58,7 @@ const IconUnpin = h(Icon, { icon: "lucide:pin-off" });
 const options = computed(() =>
   [
     {
-      label: isPinned.value ? "Unpin" : "Pin",
+      label: isPinned.value ? "Desafixar" : "Fixar",
       icon: isPinned.value ? IconUnpin : IconPin,
       onClick: () => togglePin.submit(),
     },

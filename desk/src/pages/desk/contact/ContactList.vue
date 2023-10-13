@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle title="Contacts">
+    <PageTitle title="Contatos">
       <template #right>
         <Button
-          label="New contact"
+          label="Novo contato"
           theme="gray"
           variant="solid"
           @click="isDialogVisible = !isDialogVisible"
@@ -50,7 +50,7 @@ const isContactDialogVisible = ref(false);
 const selectedContact = ref(null);
 const columns = [
   {
-    label: "Name",
+    label: "Nome",
     key: "name",
     width: "w-80",
   },
@@ -60,7 +60,7 @@ const columns = [
     width: "w-80",
   },
   {
-    label: "Phone",
+    label: "Telefone",
     key: "phone",
     width: "w-80",
   },
@@ -80,7 +80,7 @@ const contacts = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Contacts",
+    title: "Contatos",
   };
 });
 

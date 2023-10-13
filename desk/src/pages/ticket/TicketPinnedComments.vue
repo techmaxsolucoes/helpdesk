@@ -5,7 +5,7 @@
       @click="isExpanded = !isExpanded"
     >
       <div class="flex gap-1">
-        <div class="font-medium text-gray-900">Pinned comments</div>
+        <div class="font-medium text-gray-900">Comentários fixados</div>
         <div class="text-gray-600">
           {{ "(" + pinnedComments.length + ")" }}
         </div>

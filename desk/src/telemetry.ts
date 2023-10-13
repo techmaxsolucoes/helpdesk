@@ -28,7 +28,7 @@ export async function init() {
 		});
 		posthog.identify(SITENAME);
 	} catch (e) {
-		console.trace("Failed to initialize telemetry", e);
+		console.trace("Falha ao inicializar a telemetria", e);
 		telemetry.value.enabled = false;
 	}
 }

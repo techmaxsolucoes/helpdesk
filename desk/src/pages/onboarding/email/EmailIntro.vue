@@ -3,7 +3,7 @@
     <div class="text-gray-700">
       {{ help }}
     </div>
-    <Button label="Let's go!" variant="outline" class="w-max" @click="next" />
+    <Button label="Vamos lá!" variant="outline" class="w-max" @click="next" />
   </div>
 </template>
 
@@ -13,9 +13,8 @@ import { useOnboardingEmailStore } from "./data";
 
 const { next } = useOnboardingEmailStore();
 const help =
-  "Did you know that our Helpdesk becomes even more powerful when \
-	integrated with email? With this integration, you can send and \
-	receive emails directly from your Helpdesk inbox. It streamlines \
-	communication and enhances productivity. Would you like assistance \
-	in setting up your email integration now?";
+  "Você sabia que o nosso sistema de suporte se tonar mais poderoso quando \
+	está integrado ao seu email? Com essa integração, você pode enviar e receber \
+	emails diretamente da sua caixa de suporte! Isso facilita a comunicação e melhora \
+  a produtividade. Você gostaria de configurar sua integração de email agora?";
 </script>

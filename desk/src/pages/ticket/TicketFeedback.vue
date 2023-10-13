@@ -2,11 +2,11 @@
   <Dialog
     :model-value="open"
     :options="{
-      title: 'Rate this ticket',
+      title: 'Pontue esse ticket!',
       actions: [
         {
           disabled: !preset,
-          label: 'Submit',
+          label: 'Enviar',
           theme: 'gray',
           variant: 'solid',
           onClick: () =>
@@ -25,12 +25,12 @@
     <template #body-content>
       <div class="space-y-4 text-base text-gray-700">
         <div class="space-y-2">
-          <span> Select a rating </span>
+          <span> Selecionar pontuação </span>
           <span class="text-red-500"> * </span>
           <StarRating v-model:rating="rating" :static="false" />
         </div>
         <div v-if="options.data?.length" class="space-y-2">
-          <span> Pick an option </span>
+          <span> Selecione uma opção </span>
           <span class="text-red-500"> * </span>
           <div class="flex flex-wrap gap-2">
             <Button
@@ -44,11 +44,11 @@
           </div>
         </div>
         <div class="space-y-2">
-          <span> Other </span>
+          <span> Outro </span>
           <FormControl
             v-model="text"
             type="textarea"
-            placeholder="Tell us more"
+            placeholder="Conte-nos um pouco mais!"
           />
         </div>
       </div>

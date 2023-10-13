@@ -25,7 +25,7 @@
           >
             <Button
               class="bg-gray-900 text-white hover:bg-gray-800"
-              label="New ticket"
+              label="Novo ticket"
               icon-right="plus"
             />
           </RouterLink>
@@ -72,7 +72,7 @@ const columns = [
     width: "w-12",
   },
   {
-    label: "Subject",
+    label: "Assunto",
     key: "subject",
     width: "w-96",
   },
@@ -82,7 +82,7 @@ const columns = [
     width: "w-32",
   },
   {
-    label: "Created",
+    label: "Criado em",
     key: "creation",
     width: "w-32",
   },
@@ -106,24 +106,24 @@ const tickets = createListManager({
 });
 
 const ACTIVE_TICKET_TYPES = ["Open", "Replied"];
-const dropdownTitle = ref("All tickets");
+const dropdownTitle = ref("Todos os tickets");
 const dropdownOptions = [
   {
-    label: "All tickets",
+    label: "Todos os tickets",
     onClick() {
-      filter("All tickets", { status: undefined });
+      filter("Todos os tickets", { status: undefined });
     },
   },
   {
-    label: "Open tickets",
+    label: "Tickets abertos",
     onClick() {
-      filter("Open tickets", { status: ["in", ACTIVE_TICKET_TYPES] });
+      filter("Tickets abertos", { status: ["in", ACTIVE_TICKET_TYPES] });
     },
   },
   {
-    label: "Closed tickets",
+    label: "Tickets fechados",
     onClick() {
-      filter("Closed tickets", { status: ["not in", ACTIVE_TICKET_TYPES] });
+      filter("Tickets fechados", { status: ["not in", ACTIVE_TICKET_TYPES] });
     },
   },
 ];
@@ -144,7 +144,7 @@ function filter(title: string, filters: Record<string, any>) {
 function transformStatus(status: string) {
   switch (status) {
     case "Replied":
-      return "Awaiting reply";
+      return "Aguardando resposta";
     default:
       return status;
   }

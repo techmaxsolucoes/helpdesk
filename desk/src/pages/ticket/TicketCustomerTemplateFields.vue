@@ -32,7 +32,7 @@ const ticket = inject(ITicket);
 function transformStatus(status: string) {
   switch (status) {
     case "Replied":
-      return "Awaiting reply";
+      return "Aguardando resposta!";
     default:
       return status;
   }

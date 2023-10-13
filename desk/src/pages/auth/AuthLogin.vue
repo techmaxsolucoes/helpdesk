@@ -28,7 +28,7 @@
                   : 'email'
               "
               label="Email"
-              placeholder="john.doe@example.com"
+              placeholder="meu-email@exemplo.com"
               :disabled="authStore.login.loading"
             />
           </div>
@@ -37,7 +37,7 @@
               v-model="password"
               variant="outline"
               size="md"
-              label="Password"
+              label="Senha"
               placeholder="••••••"
               :disabled="authStore.login.loading"
               type="password"
@@ -49,7 +49,7 @@
             class="mt-6 w-full"
             :loading="authStore.login.loading"
           >
-            Login
+            Entrar
           </Button>
           <RouterLink :to="{ name: SIGNUP }">
             <button
@@ -57,7 +57,7 @@
               class="mt-2 w-full py-2 text-base text-gray-600"
               @click="showEmailLogin = false"
             >
-              Don't have an account? Signup
+              Não possui um conta ainda? Registre-se
             </button>
           </RouterLink>
           <button
@@ -65,7 +65,7 @@
             class="mt-2 w-full py-2 text-base text-gray-600"
             @click="showEmailLogin = false"
           >
-            Login using other methods
+            Entrar usando outros métodos
           </button>
         </form>
         <div
@@ -73,7 +73,7 @@
           class="mx-auto space-y-2"
         >
           <Button variant="solid" class="w-full" @click="showEmailLogin = true">
-            Login via email
+            Entrar com email
           </Button>
           <a
             v-for="provider in authProviders.data"
@@ -81,7 +81,7 @@
             class="block h-7 w-full rounded border bg-gray-900 px-3 py-1 text-center text-base text-white -colors hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400"
             :href="provider.auth_url"
           >
-            Login via {{ provider.provider_name }}
+            Entrar com {{ provider.provider_name }}
           </a>
         </div>
       </div>

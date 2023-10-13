@@ -18,7 +18,7 @@
             size="md"
             type="email"
             label="Email"
-            placeholder="jane@example.com"
+            placeholder="jose@exemplo.com"
             :disabled="authStore.signup.loading"
           />
           <FormControl
@@ -26,8 +26,8 @@
             variant="outline"
             size="md"
             type="text"
-            label="First name"
-            placeholder="John"
+            label="Nome"
+            placeholder="José"
             class="mt-4"
             :disabled="authStore.signup.loading"
           />
@@ -36,8 +36,8 @@
             variant="outline"
             size="md"
             type="text"
-            label="Last name"
-            placeholder="Doe"
+            label="Sobrenome"
+            placeholder="da Silva"
             class="mt-4"
             :disabled="authStore.signup.loading"
           />
@@ -47,13 +47,13 @@
             class="mt-6 w-full"
             :loading="authStore.signup.loading"
           >
-            Signup
+            Registrar
           </Button>
         </form>
       </div>
       <RouterLink :to="{ name: LOGIN }">
         <button class="mt-2 w-full py-2 text-base text-gray-600">
-          Already have an account? Login
+          Já tem uma conta? Entrar
         </button>
       </RouterLink>
     </div>

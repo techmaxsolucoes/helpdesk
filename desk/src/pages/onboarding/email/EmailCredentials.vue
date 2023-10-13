@@ -3,28 +3,28 @@
     <form class="space-y-4" @submit.prevent="submit">
       <Input
         v-model="accountName"
-        label="Account name"
-        placeholder="John Doe (Example.com)"
+        label="Seu nome"
+        placeholder="José da Silva (minhaempresa.com.br)"
         type="text"
         required
       />
       <Input
         v-model="email"
         label="Email"
-        placeholder="john.doe@example.com"
+        placeholder="jose@minhaempresa.com.br"
         type="email"
         required
       />
       <Input
         v-model="password"
-        label="Password"
+        label="Senha"
         placeholder="••••••••"
         type="password"
         required
       />
     </form>
     <Button
-      label="Finish!"
+      label="Finalizar!"
       :disabled="!accountName || !email || !password"
       :loading="insertRes.loading"
       class="w-max"

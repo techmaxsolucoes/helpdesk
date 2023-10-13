@@ -4,7 +4,7 @@
     class="rounded border bg-cyan-50 px-5 py-3 text-base"
   >
     <div class="mb-2 font-medium">
-      Did you know? These articles might cover what you looking for!
+      Você sabia que? Esses artigos podem ser a resposta que você estava buscando!
     </div>
     <ul class="space-y-2">
       <li

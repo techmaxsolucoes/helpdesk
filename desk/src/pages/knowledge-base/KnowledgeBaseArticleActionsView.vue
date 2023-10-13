@@ -43,26 +43,26 @@ const primary = computed(() => ({
 }));
 const dropdownOptions = [
   {
-    label: "Edit",
+    label: "Editar",
     icon: IconEdit,
     onClick: () => emit("toggleEditMode"),
   },
   {
-    label: "Delete",
+    label: "Deletar",
     icon: IconTrash,
     onClick: () => (showDeleteDialog.value = !showDeleteDialog.value),
   },
 ];
 const deleteDialogOptions = {
-  title: "Delete",
-  message: "Are you sure you want to delete? This action can not be reversed",
+  title: "Deletar",
+  message: "Você tem certeza que deseja deletar? Essa ação não pode ser desfeita!",
   icon: {
     name: "alert-triangle",
     appearance: "warning",
   },
   actions: [
     {
-      label: "Confirm",
+      label: "Confirmar",
       theme: "red",
       variant: "solid",
       onClick: () => emit("delete"),

@@ -1,6 +1,6 @@
 <template>
   <Dialog
-    :options="{ title: 'Canned responses', size: '4xl' }"
+    :options="{ title: 'Modelos de respostas', size: '4xl' }"
     @close="() => $emit('update:modelValue', false)"
   >
     <template #body-content>

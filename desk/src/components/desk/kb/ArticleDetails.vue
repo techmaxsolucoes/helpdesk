@@ -1,6 +1,6 @@
 <template>
 	<div class="flex flex-col rounded shadow p-5 text-base space-y-[12px]">
-		<div class="font-semibold">Details</div>
+		<div class="font-semibold">Detalhes</div>
 		<div class="border-b w-full"></div>
 		<RouterLink
 			:to="`/knowledge-base/articles/${article.name}`"
@@ -21,7 +21,7 @@
 		</RouterLink>
 		<div v-if="$resources.users.data" class="flex flex-col">
 			<span class="block mb-2 text-sm leading-4 text-gray-700">
-				Author
+				Autor
 			</span>
 			<Autocomplete
 				:options="
@@ -29,7 +29,7 @@
 						return { label: x.name, value: x.name }
 					})
 				"
-				placeholder="Choose author"
+				placeholder="Escolha o autor"
 				:value="isNew ? articleTempValues?.author : article.author"
 				@change="
 					(item) => {

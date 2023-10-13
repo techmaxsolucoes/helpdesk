@@ -8,10 +8,10 @@
               <img :src="Logo" class="h-5" />
             </RouterLink>
             <span class="text-gray-600">/</span>
-            <span class="font-medium text-gray-900">Knowledge Base</span>
+            <span class="font-medium text-gray-900">Base de conhecimento</span>
           </div>
           <Button
-            label="Search"
+            label="Pequisar"
             theme="gray"
             variant="outline"
             @click="showSearch = !showSearch"

@@ -10,7 +10,7 @@
             }
           : null
       "
-      placeholder="Assign an agent"
+      placeholder="Escalar para um agente"
       @change="assignAgent($event.value)"
     >
       <template #prefix>
@@ -102,7 +102,7 @@ const setValue = createResource({
   onSuccess: () => {
     emitter.emit("update:ticket");
     createToast({
-      title: "Ticket updated",
+      title: "Ticket atualizado",
       icon: "check",
       iconClasses: "text-green-600",
     });

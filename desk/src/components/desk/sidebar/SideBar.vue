@@ -8,7 +8,7 @@
   >
     <UserMenu class="mb-2 ml-0.5" :options="profileSettings" />
     <SidebarLink
-      label="Search"
+      label="Pesquisar"
       class="mb-1"
       :icon="LucideSearch"
       :on-click="() => openCommandPalette()"
@@ -30,7 +30,7 @@
       />
       <SidebarLink
         class="relative"
-        label="Notifications"
+        label="Notificações"
         :icon="LucideInbox"
         :on-click="() => notificationStore.toggle()"
         :is-expanded="isExpanded"
@@ -68,7 +68,7 @@
       :icon="isExpanded ? LucideArrowLeftFromLine : LucideArrowRightFromLine"
       :is-active="false"
       :is-expanded="isExpanded"
-      :label="isExpanded ? 'Collapse' : 'Expand'"
+      :label="isExpanded ? 'Esconder' : 'Exibir'"
       :on-click="() => (isExpanded = !isExpanded)"
     />
   </div>
@@ -132,12 +132,12 @@ const menuOptions = computed(() => [
     to: AGENT_PORTAL_DASHBOARD,
   },
   {
-    label: "Agents",
+    label: "Agentes",
     icon: LucideUser,
     to: AGENT_PORTAL_AGENT_LIST,
   },
   {
-    label: "Knowledge base",
+    label: "Base de conhecimento",
     icon: LucideBookOpen,
     to: "DeskKBHome",
     isBeta: true,
@@ -146,35 +146,35 @@ const menuOptions = computed(() => [
 
 const extraOptions = [
   {
-    label: "Teams",
+    label: "Equipes",
     icon: LucideUsers,
     to: AGENT_PORTAL_TEAM_LIST,
   },
   {
-    label: "Escalation rules",
+    label: "Regras de escalonamento",
     icon: LucideArrowUpFromLine,
     to: AGENT_PORTAL_ESCALATION_RULE_LIST,
     isBeta: true,
   },
   {
-    label: "Ticket types",
+    label: "Tipos de tickets",
     icon: LucideFolderOpen,
     to: AGENT_PORTAL_TICKET_TYPE_LIST,
     hide: true,
   },
   {
-    label: "Canned responses",
+    label: "Modelos de respostas",
     icon: LucideCloudLightning,
     to: AGENT_PORTAL_CANNED_RESPONSE_LIST,
     isBeta: true,
   },
   {
-    label: "Customers",
+    label: "Clientes",
     icon: LucideUserCircle2,
     to: AGENT_PORTAL_CUSTOMER_LIST,
   },
   {
-    label: "Contacts",
+    label: "Contatos",
     icon: LucideContact2,
     to: AGENT_PORTAL_CONTACT_LIST,
   },
@@ -182,12 +182,12 @@ const extraOptions = [
 
 const profileSettings = [
   {
-    label: "Shortcuts",
+    label: "Atalhos",
     icon: "command",
     onClick: () => keymapStore.toggleVisibility(true),
   },
   {
-    label: "Customer portal",
+    label: "Portal do cliente",
     icon: "users",
     onClick: () => {
       const path = router.resolve({ name: CUSTOMER_PORTAL_LANDING });
@@ -195,7 +195,7 @@ const profileSettings = [
     },
   },
   {
-    label: "Log out",
+    label: "Sair",
     icon: "log-out",
     onClick: () => authStore.logout(),
   },

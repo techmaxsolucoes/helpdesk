@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle title="Ticket Types">
+    <PageTitle title="Tipos de tickets">
       <template #right>
         <RouterLink :to="{ name: AGENT_PORTAL_TICKET_TYPE_NEW }">
-          <Button label="New ticket type" theme="gray" variant="solid">
+          <Button label="Novo tipo de ticket" theme="gray" variant="solid">
             <template #prefix>
               <LucidePlus class="h-4 w-4" />
             </template>
@@ -31,12 +31,12 @@ import { ListView } from "@/components";
 
 const columns = [
   {
-    label: "Name",
+    label: "Nome",
     key: "name",
     width: "w-80",
   },
   {
-    label: "Priority",
+    label: "Prioridade",
     key: "priority",
     width: "w-80",
   },
@@ -61,7 +61,7 @@ const ticketTypes = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Ticket types",
+    title: "Tipos de tickets",
   };
 });
 </script>

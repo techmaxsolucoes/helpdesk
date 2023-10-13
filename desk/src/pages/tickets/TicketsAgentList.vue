@@ -8,7 +8,7 @@
   >
     <template #status="{ data }">
       <Badge
-        :label="data.status"
+        :label="ticketStatusLabel[data.status]"
         :theme="ticketStatusStore.colorMap[data.status]"
         variant="subtle"
       />
@@ -34,7 +34,7 @@
     </template>
     <template #agreement_status="{ data }">
       <Badge
-        :label="data.agreement_status"
+        :label="slaStatusLabel[data.agreement_status]"
         :theme="slaStatusColorMap[data.agreement_status]"
         variant="outline"
       />
@@ -46,13 +46,13 @@
             data.first_responded_on &&
             dayjs(data.first_responded_on).isBefore(data.response_by)
           "
-          label="Fulfilled"
+          label="Realizado"
           theme="green"
           variant="outline"
         />
         <Badge
           v-else-if="dayjs(data.first_responded_on).isAfter(data.response_by)"
-          label="Failed"
+          label="Falhou"
           theme="red"
           variant="outline"
         />
@@ -68,13 +68,13 @@
             data.resolution_date &&
             dayjs(data.resolution_date).isBefore(data.resolution_by)
           "
-          label="Fulfilled"
+          label="Realizado"
           theme="green"
           variant="outline"
         />
         <Badge
           v-else-if="dayjs(data.resolution_date).isAfter(data.resolution_by)"
-          label="Failed"
+          label="Falhou"
           theme="red"
           variant="outline"
         />
@@ -97,7 +97,7 @@
         <template #default>
           <Button
             class="flex cursor-pointer items-center gap-1 text-gray-700"
-            label="Assign"
+            label="Escalar"
             theme="gray"
             variant="ghost"
           >
@@ -131,6 +131,19 @@ interface P {
 defineProps<P>();
 const agentStore = useAgentStore();
 const ticketStatusStore = useTicketStatusStore();
+const ticketStatusLabel = {
+  Replied: 'Respondido',
+  Open: 'Em aberto',
+  Resolved: 'Solucionado',
+  Closed: 'Encerrado'
+};
+const slaStatusLabel = {
+  Fulfilled: 'Alcançado',
+  Failed: 'Falhou',
+  'Resolution Due': 'Resolução com atraso',
+  'First Response Due': 'Primeira resposta com atraso',
+  Paused: 'Pausado'
+};
 const slaStatusColorMap = {
   Fulfilled: "green",
   Failed: "red",
@@ -143,12 +156,12 @@ const bulkAssignTicketToAgent = createResource({
   url: "helpdesk.api.ticket.bulk_assign_ticket_to_agent",
   onSuccess: () => {
     createToast({
-      title: "Tickets assigned to agent",
+      title: "Tickets escalados para o agente",
       icon: "check",
       iconClasses: "text-green-500",
     });
   },
-  onError: useError({ title: "Unable to assign tickets to agent" }),
+  onError: useError({ title: "Erro ao escalar tickets para o agente!" }),
 });
 
 function assignOpts(selected: Set<number>) {

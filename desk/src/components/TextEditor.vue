@@ -34,7 +34,7 @@
             </div>
             <div class="flex items-center gap-2">
               <Button
-                label="Discard"
+                label="Descartar"
                 theme="gray"
                 variant="subtle"
                 @click="

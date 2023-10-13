@@ -15,8 +15,8 @@ import { capture } from "@/telemetry";
 
 const emoji = "✔️";
 const message =
-	"Fantastic! Your email is now active. You are ready unleash true \
-	potential of Frappe Helpdesk!";
+	"Maravilha! Seu email está ativo. Você está pronto para explorar \
+	o real potencial do nosso sistema de suporte!";
 
 onMounted(() => capture("onboarding_email_finished"));
 </script>

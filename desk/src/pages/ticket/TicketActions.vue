@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col border-l">
-    <TicketSidebarHeader title="Actions" />
+    <TicketSidebarHeader title="Ações" />
     <div class="flex flex-wrap gap-2 overflow-auto p-5">
-      <span v-if="!actions.data" class="text-base">Nothing to show</span>
+      <span v-if="!actions.data" class="text-base">Nada para mostrar</span>
       <Button
         v-for="a in actions.data"
         :key="a.name"

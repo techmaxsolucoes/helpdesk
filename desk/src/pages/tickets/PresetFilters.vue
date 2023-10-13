@@ -47,8 +47,8 @@ export default {
     },
     title() {
       if (this.presetTitle) return this.presetTitle;
-      if (this.currentQuery) return "Filtered Tickets";
-      return "All Tickets";
+      if (this.currentQuery) return "Tickets filtrados";
+      return "Todos os tickets";
     },
     presets() {
       return this.$resources.presetFilterOptions.data || [];
@@ -60,7 +60,7 @@ export default {
         Object.keys(data).forEach((group) => {
           if (data[group].length) {
             options.push({
-              group: group === "user" ? "My Filters" : "Global",
+              group: group === "user" ? "Meus filtros" : "Filtros globais",
               hideLabel: group !== "user",
               items: data[group].map((item) => {
                 return {

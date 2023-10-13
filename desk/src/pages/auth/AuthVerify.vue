@@ -8,7 +8,7 @@
       />
       <Logo v-else class="mx-auto h-8" />
       <div class="mt-6 flex items-center justify-center space-x-1.5">
-        <span class="text-3xl font-semibold text-gray-900">Account Setup</span>
+        <span class="text-3xl font-semibold text-gray-900">Configuração da Conta</span>
       </div>
       <div class="mx-auto mt-6 w-full px-4 sm:w-96">
         <form method="POST" @submit.prevent="submit">
@@ -18,7 +18,7 @@
             size="md"
             type="email"
             label="Email"
-            placeholder="john.doe@example.com"
+            placeholder="jose@exemplo.com"
             :disabled="authStore.verify.loading"
           />
           <FormControl
@@ -26,7 +26,7 @@
             class="mt-4"
             variant="outline"
             size="md"
-            label="Password"
+            label="Senha"
             placeholder="••••••"
             :disabled="authStore.verify.loading"
             type="password"
@@ -37,7 +37,7 @@
             class="mt-6 w-full"
             :loading="authStore.verify.loading"
           >
-            Verify
+            Verificar
           </Button>
         </form>
       </div>

@@ -24,7 +24,7 @@ provide("viewportWidth", viewportWidth);
 onMounted(async () => {
   window.addEventListener("online", () => {
     createToast({
-      title: "You are now online",
+      title: "Você está online agora!",
       icon: "wifi",
       iconClasses: "stroke-green-600",
     });
@@ -32,7 +32,7 @@ onMounted(async () => {
 
   window.addEventListener("offline", () => {
     createToast({
-      title: "You are now offline",
+      title: "Oups, acho que a internet caiu! Você se machucou? rs",
       icon: "wifi-off",
       iconClasses: "stroke-red-600",
     });

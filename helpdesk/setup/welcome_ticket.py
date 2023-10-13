@@ -1,24 +1,26 @@
 import frappe
 from frappe.desk.form.assign_to import add as add_assign
 
-AUTHOR_EMAIl = "sabu@frappe.io"
-AUTHOR_NAME = "Sabu Siyad"
+AUTHOR_EMAIl = "mmorais@techmaxsolucoes.com.br"
+AUTHOR_NAME = "Maxwell Morais"
 CONTENT = """
 <p>
-Hi 👋
+Olá 👋
 <br><br>
-I'm glad you decided to try Helpdesk! We're working hard to build a better way for teams
-to communicate and serve customers well.
+Eu estou extremamente feliz em saber que você decidiu testar o nosso sistema de suporte!
+Nós estamos trabalhando para construir maneira para que equipes possam se comunicar e 
+atender os clientes de forma bem otimizada.
 <br><br>
-You can get started right away by setting up a support email. This will help you see what
-your support will look like with Helpdesk!
+Você pode começar agora mesmo configurando um email de suporte! Isso vai te ajudar a ver
+como o seu suporte vai melhorar com o nosso sistema.
 <br><br>
-If you face any issues, please reach out to us via <a href="https://frappedesk.com/helpdesk">
-https://frappedesk.com/helpdesk</a>
+Se você encontrar algum problema, por favor nos envie um email para: 
+<a href="mailto:suporte@techmaxsolucoes.com.br">suporte@techmaxsolucoes.com.br</a>
 <br><br>
-Best,
+Boa sorte na sua jornada de melhoria do atendimento ao cliente,
+qualquer dúvida, você sabe que pode contar conosco!
 <br>
-Sabu Siyad | Frappe Helpdesk.
+Maxwell Morais | TechMax Soluções.
 """
 
 
@@ -32,7 +34,7 @@ def create_ticket():
 		return
 
 	d = frappe.new_doc("HD Ticket")
-	d.subject = "Welcome to Helpdesk"
+	d.subject = "Bem vindo ao Helpdesk"
 	d.description = CONTENT
 	d.raised_by = AUTHOR_EMAIl
 	d.contact = AUTHOR_NAME

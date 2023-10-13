@@ -1,27 +1,27 @@
 <template>
   <div>
-    <Dialog v-model="open" :options="{ title: 'Add New Customer', size: 'sm' }">
+    <Dialog v-model="open" :options="{ title: 'Adicionar novo cliente', size: 'sm' }">
       <template #body-content>
         <div class="space-y-4">
           <div class="space-y-1">
             <Input
               v-model="customer"
-              label="Customer Name"
+              label="Nome do Cliente"
               type="text"
-              placeholder="Tesla Inc."
+              placeholder="Banco do Brasil"
             />
           </div>
           <div class="space-y-1">
             <Input
               v-model="domain"
-              label="Domain"
+              label="Dominio"
               type="text"
-              placeholder="eg: tesla.com, mycompany.com"
+              placeholder="eg: bb.com.br, minhaempresa.com.br"
             />
           </div>
           <div class="float-right flex space-x-2">
             <Button
-              label="Add"
+              label="Adicionar"
               theme="gray"
               variant="solid"
               @click="

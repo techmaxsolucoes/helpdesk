@@ -1,4 +1,5 @@
 import d from "dayjs";
+import "dayjs/locale/pt-br";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import relativeTime from "dayjs/plugin/relativeTime";
 
@@ -21,5 +22,7 @@ d.extend(function (_, cls) {
     return this.format("LLLL");
   };
 });
+
+d.locale('pt-br');
 
 export const dayjs = d;

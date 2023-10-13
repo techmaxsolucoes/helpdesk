@@ -26,12 +26,11 @@ import { capture } from "@/telemetry";
 import IconCheck from "~icons/ph/check-bold";
 
 const text =
-	"Now, let's set a name for your Helpdesk that reflects your organization's \
-	identity and values. So, what would you like to name your Helpdesk?";
+	"Agora, vamos dar um nome para o seu sistema que reflita a identidade \
+	e valores da sua empresa. Então, qual nome você gostaria de dar so seu sistema de suporte?";
 const subText =
-	"Choose a name that resonates with your brand and instills \
-	trust in your customers";
-const placeholder = "My Helpdesk";
+	"Escolha um nome que combine com a sua marca e que instigue credibilidade aos teus clientes!";
+const placeholder = "Meu cantinho de soluções!";
 const isCheckVisible = ref(false);
 
 const r = createResource({

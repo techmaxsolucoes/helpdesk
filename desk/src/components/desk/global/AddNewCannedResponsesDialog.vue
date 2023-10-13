@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Dialog
-			:options="{ title: 'New canned response', size: '3xl' }"
+			:options="{ title: 'Novo modelo de resposta', size: '3xl' }"
 			:show="show"
 			@close="close()"
 			class="bg-white px-6 py-5 pb-1 pt-6"

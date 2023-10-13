@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle title="Escalation Rules">
+    <PageTitle title="Regras de escalonamento">
       <template #right>
         <Button
-          label="New rule"
+          label="Nova regra"
           theme="gray"
           variant="solid"
           @click="openDialog(null)"
@@ -22,7 +22,7 @@
     >
       <template #is_enabled="{ data }">
         <Badge :theme="data.is_enabled ? 'green' : 'red'" variant="subtle">
-          {{ data.is_enabled ? "Enabled" : "Disabled" }}
+          {{ data.is_enabled ? "Abilitada" : "Desabilitada" }}
         </Badge>
       </template>
     </ListView>
@@ -44,20 +44,20 @@ import EscalationRuleDialog from "./EscalationRuleDialog.vue";
 
 const showDialog = ref(false);
 const selectedRule = ref(null);
-const emptyMessage = "No Escalation Rules Found";
+const emptyMessage = "Nenhuma regra de escalonamento encontrada";
 const columns = [
   {
-    label: "Priority",
+    label: "Prioridade",
     key: "priority",
     width: "w-64",
   },
   {
-    label: "Team",
+    label: "Equipe",
     key: "team",
     width: "w-64",
   },
   {
-    label: "Ticket type",
+    label: "Tipo de ticket",
     key: "ticket_type",
     width: "w-64",
   },
@@ -82,7 +82,7 @@ const rules = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Escalation rules",
+    title: "Regras de escolamento",
   };
 });
 

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Dialog
-			:options="{ title: 'Add Agents' }"
+			:options="{ title: 'Adicionar agentes' }"
 			:show="show"
 			@close="close()"
 		>
@@ -16,7 +16,7 @@
 							class="w-full"
 							type="text"
 							v-model="searchInput"
-							placeholder="Type emails"
+							placeholder="Digite os emails"
 							@input="(val) => onSearchInputChange(val)"
 						/>
 						<Button
@@ -30,7 +30,7 @@
 								}
 							"
 						>
-							Add
+							Adicionar
 						</Button>
 					</form>
 					<div
@@ -67,7 +67,7 @@
 					@click="sentInvites()"
 					class="mr-2"
 					:loading="$resources.sentInvites.loading"
-					>Send Invites</Button
+					>Enviar convites</Button
 				>
 				<Button appearance="secondary" class="mr-2" @click="close()">Cancel</Button>
 				<div class="grow">
@@ -75,7 +75,7 @@
 						@click="removeAllEmailFromQueue()"
 						v-if="inviteQueue.length > 1"
 					>
-						Clear All
+						Limpar todos
 					</Button>
 				</div>
 			</template>
@@ -182,7 +182,7 @@ export default {
 					this.inviteQueue = []
 
 					this.$toast({
-						title: "Invites Sent Successfully!",
+						title: "Convites enviados com sucesso!",
 						icon: "check",
 						iconClasses: "text-green-500"
 					})
@@ -193,7 +193,7 @@ export default {
 					if (err.exc_type == "PaywallReachedError") {
 						this.$toast({
 							title: "Paywall Reached!",
-							text: "You have reached the maximum number of agents you can add. Please upgrade your plan to add more agents.",
+							text: "Você excedeu o número máximo de agentes que você pode adicionar!. Por favor atualize o seu plano para adicionar mais agentes.",
 							icon: "x",
 							iconClasses: "text-red-500",
 						})

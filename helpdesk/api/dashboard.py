@@ -32,7 +32,7 @@ def ticket_statuses():
 	)
 
 	return {
-		"title": "Status",
+		"title": "Por Status",
 		"is_chart": True,
 		"chart_type": "Pie",
 		"data": res,
@@ -57,14 +57,14 @@ def avg_first_response_time():
 	for ticket in ticket_list:
 		average_resolution_time += ticket.resolution_time
 
-	res = "Not enough data"
+	res = "Sem dados suficientes"
 
 	if ticket_list:
 		h = round((((average_resolution_time) / len(ticket_list)) / 3600), 1)
 		res = f"{h} Hours"
 
 	return {
-		"title": "Avg. first response time",
+		"title": "Tempo médio para 1ª resposta",
 		"is_chart": False,
 		"data": res,
 	}
@@ -83,7 +83,7 @@ def ticket_types():
 	)
 
 	return {
-		"title": "Type",
+		"title": "Por tipo",
 		"is_chart": True,
 		"chart_type": "Pie",
 		"data": res,
@@ -104,7 +104,7 @@ def new_tickets():
 	)
 
 	return {
-		"title": "New tickets",
+		"title": "Novos tickets",
 		"is_chart": True,
 		"chart_type": "Line",
 		"data": res,
@@ -140,7 +140,7 @@ def resolution_within_sla():
 		res = str(resolution_within_sla_percentage) + "%"
 
 	return {
-		"title": "Resolution within SLA",
+		"title": "Resolução dentro do SLA",
 		"is_chart": False,
 		"data": res,
 	}
@@ -160,7 +160,7 @@ def ticket_activity():
 	)
 
 	return {
-		"title": "Activity",
+		"title": "Atividade",
 		"is_chart": True,
 		"chart_type": "Line",
 		"data": res,
@@ -180,7 +180,7 @@ def ticket_priority():
 	)
 
 	return {
-		"title": "Priority",
+		"title": "Prioridade",
 		"is_chart": True,
 		"chart_type": "Pie",
 		"data": res,
@@ -209,7 +209,7 @@ def my_tickets():
 	res = " / ".join(map(map_row, res)).lower()
 
 	return {
-		"title": "My tickets",
+		"title": "Meus tickets",
 		"is_chart": False,
 		"data": res,
 	}

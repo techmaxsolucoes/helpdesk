@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div v-else class="text-gray-700">No shortcuts defined</div>
+      <div v-else class="text-gray-700">Sem atalhos definidos!</div>
     </template>
   </Dialog>
 </template>
@@ -34,6 +34,6 @@ import { useKeymapStore } from "@/stores/keymap";
 
 const keymapStore = useKeymapStore();
 const options = {
-  title: "Shortcuts",
+  title: "Atalhos",
 };
 </script>

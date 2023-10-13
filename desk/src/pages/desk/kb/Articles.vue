@@ -13,12 +13,12 @@
 					:options="{
 						fields: {
 							title: {
-								label: 'Title',
+								label: 'Título',
 								width: '5',
 								priority: 1,
 							},
 							category_name: {
-								label: 'Category',
+								label: 'Categoria',
 								width: '3',
 								priority: 1,
 							},
@@ -28,12 +28,12 @@
 								priority: 1,
 							},
 							views: {
-								label: 'Views',
+								label: 'Visualizações',
 								width: '1',
 								priority: 3,
 							},
 							modified: {
-								label: 'Modified',
+								label: 'Modificado em',
 								width: '1',
 								priority: 2,
 								align: 'right',
@@ -51,8 +51,8 @@
 						<TabButtons
 							v-model="activeTab"
 							:buttons="[
-								{ label: 'Articles', active: true },
-								{ label: 'Webview' },
+								{ label: 'Artigos', active: true },
+								{ label: 'Ver na Web' },
 							]"
 						/>
 					</template>
@@ -73,14 +73,14 @@
 								"
 							>
 								<template #selector-main="{ show }">
-									<Button @click="show">Move to</Button>
+									<Button @click="show">Mover para</Button>
 								</template>
 							</CategorySelector>
 							<Dropdown
 								placement="right"
 								:options="[
 									{
-										label: 'Draft',
+										label: 'Rascunho',
 										onClick: () => {
 											$resources.setStatusForArticles
 												.submit({
@@ -93,7 +93,7 @@
 										},
 									},
 									{
-										label: 'Published',
+										label: 'Publicado',
 										onClick: () => {
 											$resources.setStatusForArticles
 												.submit({
@@ -114,7 +114,7 @@
 										class="ml-2"
 										@click="toggleDropdown"
 									>
-										Mark as
+										Marcar como
 									</Button>
 								</template>
 							</Dropdown>
@@ -132,7 +132,7 @@
 											});
 									}
 								"
-								>Delete</Button
+								>Deletar</Button
 							>
 						</div>
 					</template>
@@ -192,7 +192,7 @@ export default {
 	},
 	data() {
 		return {
-			activeTab: "Articles",
+			activeTab: "Artigos",
 		};
 	},
 	resources: {
@@ -212,7 +212,7 @@ export default {
 			}
 		},
 		knowledgeBase() {
-			if (this.activeTab == "Webview") {
+			if (this.activeTab == "Ver na web") {
 				this.$router.push({ path: "/kb" })
 			}
 		},

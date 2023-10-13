@@ -43,7 +43,7 @@ export const useAuthStore = defineStore("auth", () => {
   const login = createResource({
     url: URI_LOGIN,
     onError() {
-      throw new Error("Invalid email or password");
+      throw new Error("Email ou senha inválidos!");
     },
     onSuccess() {
       router.replace({ path: "/" });
@@ -64,7 +64,7 @@ export const useAuthStore = defineStore("auth", () => {
     },
     onError() {
       createToast({
-        title: "Error verifying account",
+        title: "Erro ao verificar a conta",
         icon: "x",
         iconClasses: "text-red-500",
       });

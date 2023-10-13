@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle title="Customers">
+    <PageTitle title="Clientes">
       <template #right>
         <Button
-          label="New customer"
+          label="Novo cliente"
           theme="gray"
           variant="solid"
           @click="isDialogVisible = !isDialogVisible"
@@ -52,15 +52,15 @@ import IconPlus from "~icons/lucide/plus";
 const isDialogVisible = ref(false);
 const isCustomerDialogVisible = ref(false);
 const selectedCustomer = ref(null);
-const emptyMessage = "No Customers Found";
+const emptyMessage = "Nenhum cliente encontrado";
 const columns = [
   {
-    label: "Name",
+    label: "Nome",
     key: "name",
     width: "w-80",
   },
   {
-    label: "Domain",
+    label: "Domnínio",
     key: "domain",
     width: "w-80",
   },
@@ -80,7 +80,7 @@ const customers = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Customers",
+    title: "Clientes",
   };
 });
 

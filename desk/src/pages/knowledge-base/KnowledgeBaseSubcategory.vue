@@ -7,7 +7,7 @@
       <template #right>
         <div class="space-x-2">
           <Button
-            label="Edit"
+            label="Editar"
             theme="gray"
             variant="outline"
             @click="showEdit = !showEdit"
@@ -17,7 +17,7 @@
             </template>
           </Button>
           <Button
-            label="Add new"
+            label="Adicionar novo"
             theme="gray"
             variant="solid"
             @click="toNewArticle"
@@ -45,7 +45,7 @@
         </Badge>
       </template>
       <template #emptyMessage>
-        <EmptyMessage message="This sub category is empty" />
+        <EmptyMessage message="Esta sub categoria está vazia!" />
       </template>
     </ListView>
     <Dialog v-model="showEdit" :options="{ title: 'Edit' }">
@@ -55,19 +55,19 @@
             <FormControl
               v-model="newSubCategoryName"
               :placeholder="subCategory.doc.category_name"
-              label="Name"
+              label="Nome"
               type="text"
             />
             <FormControl
               v-model="newSubCategoryDescription"
               :placeholder="subCategory.doc.description"
-              label="Description"
+              label="Descrição"
               type="textarea"
             />
             <Button
               :disabled="!newSubCategoryName && !newSubCategoryDescription"
               class="w-full"
-              label="Save"
+              label="Salvar"
               theme="gray"
               variant="solid"
             />
@@ -116,7 +116,7 @@ const subCategory = createDocumentResource({
   name: props.subCategoryId,
   auto: true,
   setValue: {
-    onError: useError({ title: "Error creating sub category" }),
+    onError: useError({ title: "Erro ao criar sub categoria!" }),
   },
 });
 
@@ -151,12 +151,12 @@ const articles = createListManager({
 
 const columns = [
   {
-    label: "Title",
+    label: "Nome",
     key: "title",
     width: "w-96",
   },
   {
-    label: "Views",
+    label: "Visualizações",
     key: "views",
     width: "w-12",
   },

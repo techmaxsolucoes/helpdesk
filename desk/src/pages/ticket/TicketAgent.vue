@@ -59,21 +59,21 @@
                 />
                 <Button
                   v-if="mode === Mode.Response"
-                  label="BCC"
+                  label="CCO"
                   :theme="showBcc ? 'blue' : 'gray'"
                   variant="subtle"
                   @click="() => (showBcc = !showBcc)"
                 />
                 <TabButtons
                   v-model="mode"
-                  :buttons="Object.values(Mode).map((m) => ({ label: m }))"
+                  :buttons="Object.values(Mode).map((m) => ({ label: m == 'Comment' ? 'Comentário' : 'Resposta' , value: m}))"
                 />
               </span>
             </template>
             <template v-if="mode == Mode.Response" #top-bottom>
               <div class="my-2.5 space-y-2 border-y py-2">
                 <div>
-                  <span class="mr-3 text-xs text-gray-500">TO:</span>
+                  <span class="mr-3 text-xs text-gray-500">Para:</span>
                   <Button :label="ticket.data.raised_by" />
                 </div>
                 <div v-if="showCc">
@@ -93,7 +93,7 @@
                     />
                     <FormControl
                       type="text"
-                      placeholder="hello@example.com"
+                      placeholder="ola@exemplo.com.br"
                       @keyup.prevent.enter="
                         (event) => {
                           cc = [...cc.split(','), event.target.value].join(',');
@@ -120,7 +120,7 @@
                     />
                     <FormControl
                       type="text"
-                      placeholder="hello@example.com"
+                      placeholder="ola@exemplo.com.br"
                       @keyup.prevent.enter="
                         (event) => {
                           bcc = [...bcc.split(','), event.target.value].join(
@@ -149,8 +149,8 @@
               <Button
                 :label="
                   {
-                    Comment: 'Comment',
-                    Response: 'Send',
+                    Comment: 'Comentar',
+                    Response: 'Enviar',
                   }[mode]
                 "
                 theme="gray"
@@ -220,7 +220,7 @@ const ticket = createResource({
 });
 provide(ITicket, ticket);
 const editor = ref(null);
-const placeholder = "Compose a comment / reply";
+const placeholder = "Compor um comentário ou resposta";
 const content = ref("");
 const attachments = ref([]);
 const isExpanded = ref(false);
@@ -280,7 +280,7 @@ const response = createResource({
     clear();
     emitter.emit("update:ticket");
   },
-  onError: useError({ title: "Error replying to ticket" }),
+  onError: useError({ title: "Erro ao responder o ticket!" }),
 });
 
 const resource = computed(() => {

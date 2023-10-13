@@ -1,11 +1,11 @@
 import frappe
 
 OPTIONS = {
-	0.2: ["Response did not help", "No resolution provided"],
-	0.4: ["Delayed response time", "Adequate help, bit slow"],
-	0.6: ["Clear guidance given", "Helpful answers, reasonable wait"],
-	0.8: ["Quick and precise solutions", "Prompt, informative support"],
-	1.0: ["Exceptional support experience", "Instant, top-notch help"],
+	0.2: ["A resposta não ajudou", "Não resolveu meu problema"],
+	0.4: ["Atraso no tempo de resposta", "Resposta adequada, mas lenta"],
+	0.6: ["Resposta clara e objetiva", "Respostas de grande ajuda, porém com alguma espera"],
+	0.8: ["Soluções rápidas e precisas", "Suporte ágil e informativo"],
+	1.0: ["Experiencia de suporte excepcional", "Ajuda instantânea e de alto nível"],
 }
 
 

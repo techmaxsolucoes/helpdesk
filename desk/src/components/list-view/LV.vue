@@ -83,7 +83,15 @@ const plural = computed(() => {
   return pluralize(singular.value);
 });
 const emptyMsg = computed(() => {
-  return `No ${plural.value} found`;
+  let pt = {
+    'agents': 'agentes',
+    'customers': 'clientes',
+    'contacts': 'contatos',
+    'teams': 'equipes',
+    'escalation rules': 'regras de escalonamento',
+    'canned responses': 'modelos de resposta'
+  };
+  return `Sem registro de ${pt[plural.value] || plural.value}`;
 });
 const id = computed(() => {
   return route.path + "_" + props.doctype;

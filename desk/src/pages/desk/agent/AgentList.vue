@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle title="Agents">
+    <PageTitle title="Agentes">
       <template #right>
         <Button
-          label="New agent"
+          label="Novo agente"
           theme="gray"
           variant="solid"
           @click="isDialogVisible = !isDialogVisible"
@@ -31,7 +31,7 @@
             size="md"
             theme="orange"
             variant="subtle"
-            >Inactive</Badge
+            >Inativo</Badge
           >
         </div>
       </template>
@@ -71,7 +71,7 @@ const columns = [
     width: "w-80",
   },
   {
-    label: "Username",
+    label: "Usuário",
     key: "username",
     width: "w-80",
   },
@@ -98,7 +98,7 @@ const agents = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Agents",
+    title: "Agentes",
   };
 });
 

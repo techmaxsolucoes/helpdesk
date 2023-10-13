@@ -12,7 +12,7 @@ function init() {
 
   socket.on("connect_error", (err) => {
     createToast({
-      title: "Socket Connection Error",
+      title: "Erro de conexão Websocket",
       text: err.message,
       icon: "x",
       iconClasses: "text-red-500",

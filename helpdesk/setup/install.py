@@ -53,16 +53,16 @@ def add_default_categories_and_articles():
 	category = frappe.get_doc(
 		{
 			"doctype": "HD Article Category",
-			"category_name": "Getting Started",
-			"description": "Content for your Category",
+			"category_name": "Começando",
+			"description": "O conteúdo da sua categoria",
 		}
 	).insert()
 
 	frappe.get_doc(
 		{
 			"doctype": "HD Article",
-			"title": "Introduction",
-			"content": "Content for your Article",
+			"title": "Introdução",
+			"content": "O conteúdo do seu artigo",
 			"category": category.name,
 			"published": False,
 		}
@@ -77,7 +77,7 @@ def add_default_sla():
 
 	sla_doc = frappe.new_doc("HD Service Level Agreement")
 
-	sla_doc.service_level = "Default"
+	sla_doc.service_level = "Padrão"
 	sla_doc.document_type = "HD Ticket"
 	sla_doc.default_sla = 1
 	sla_doc.enabled = 1
@@ -86,7 +86,7 @@ def add_default_sla():
 		{
 			"doctype": "HD Service Level Priority",
 			"default_priority": 0,
-			"priority": "Low",
+			"priority": "Baixo",
 			"response_time": 60 * 60 * 24,
 			"resolution_time": 60 * 60 * 72,
 		}
@@ -96,7 +96,7 @@ def add_default_sla():
 		{
 			"doctype": "HD Service Level Priority",
 			"default_priority": 1,
-			"priority": "Medium",
+			"priority": "Médio",
 			"response_time": 60 * 60 * 8,
 			"resolution_time": 60 * 60 * 24,
 		}
@@ -106,7 +106,7 @@ def add_default_sla():
 		{
 			"doctype": "HD Service Level Priority",
 			"default_priority": 0,
-			"priority": "High",
+			"priority": "Alto",
 			"response_time": 60 * 60 * 1,
 			"resolution_time": 60 * 60 * 4,
 		}
@@ -116,7 +116,7 @@ def add_default_sla():
 		{
 			"doctype": "HD Service Level Priority",
 			"default_priority": 0,
-			"priority": "Urgent",
+			"priority": "Critico",
 			"response_time": 60 * 30,
 			"resolution_time": 60 * 60 * 2,
 		}
@@ -157,7 +157,7 @@ def add_default_sla():
 			{
 				"doctype": "HD Service Day",
 				"workday": day,
-				"start_time": "10:00:00",
+				"start_time": "08:00:00",
 				"end_time": "18:00:00",
 			}
 		)
@@ -190,10 +190,10 @@ def enable_track_service_level_agreement_in_support_settings():
 
 def add_default_ticket_priorities():
 	ticket_priorities = {
-		"Urgent": 100,
-		"High": 200,
-		"Medium": 300,
-		"Low": 400,
+		"Critico": 100,
+		"Alto": 200,
+		"Médio": 300,
+		"Baixo": 400,
 	}
 
 	for priority in ticket_priorities:
@@ -207,7 +207,7 @@ def add_default_ticket_priorities():
 
 
 def add_default_agent_groups():
-	agent_groups = ["Billing", "Product Experts"]
+	agent_groups = ["Vendas", "Financeiro"]
 
 	for agent_group in agent_groups:
 		if not frappe.db.exists("HD Team", agent_group):
@@ -242,11 +242,17 @@ def add_default_assignment_rule():
 
 def add_system_preset_filters():
 	preset_filters = []
+	pt = {
+		'Closed': 'encerrados',
+		'Resolved': 'resolvidos',
+		'Replied': 'respondidos',
+		'Open': 'em aberto'
+	}
 	for status in ["Closed", "Resolved", "Replied", "Open"]:
 		preset_filters.append(
 			{
 				"doctype": "HD Preset Filter",
-				"title": f"My {status} Tickets",
+				"title": f"Meus tickets {pt.get(status)}",
 				"reference_doctype": "HD Ticket",
 				"filters": [
 					{
@@ -267,7 +273,7 @@ def add_system_preset_filters():
 	preset_filters.append(
 		{
 			"doctype": "HD Preset Filter",
-			"title": "All Tickets",
+			"title": "Todos os tickets",
 			"reference_doctype": "HD Ticket",
 			"filters": [],
 		}

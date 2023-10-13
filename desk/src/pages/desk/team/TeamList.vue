@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle title="Teams">
+    <PageTitle title="Equipes">
       <template #right>
         <Button
-          label="New team"
+          label="Nova equipe"
           theme="gray"
           variant="solid"
           @click="showNewDialog = !showNewDialog"
@@ -23,21 +23,21 @@
     <Dialog
       v-model="showNewDialog"
       :options="{
-        title: 'New team',
+        title: 'Nova equipe',
       }"
     >
       <template #body-content>
         <form class="space-y-2" @submit.prevent="newTeam.submit">
           <FormControl
             v-model="newTeamTitle"
-            label="Title"
-            placeholder="Product experts"
+            label="Título"
+            placeholder="Vendas"
             type="text"
           />
           <Button
             :disabled="isEmpty(newTeamTitle)"
             class="w-full"
-            label="Create"
+            label="Criar"
             theme="gray"
             variant="solid"
           />
@@ -61,15 +61,15 @@ import IconPlus from "~icons/lucide/plus";
 const router = useRouter();
 const showNewDialog = ref(false);
 const newTeamTitle = ref(null);
-const emptyMessage = "No Teams Found";
+const emptyMessage = "Nenhuma equipe encontrada!";
 const columns = [
   {
-    label: "Name",
+    label: "Nome",
     key: "name",
     width: "w-80",
   },
   {
-    label: "Assignment rule",
+    label: "Regra de atribuição",
     key: "assignment_rule",
     width: "w-80",
   },
@@ -103,7 +103,7 @@ const newTeam = createResource({
     };
   },
   validate(params) {
-    if (isEmpty(params.doc.team_name)) return "Title is required";
+    if (isEmpty(params.doc.team_name)) return "O título é obrigatório!";
   },
   auto: false,
   onSuccess() {
@@ -114,12 +114,12 @@ const newTeam = createResource({
       },
     });
   },
-  onError: useError({ title: "Error creating team" }),
+  onError: useError({ title: "Erro ao criar a equipe!" }),
 });
 
 usePageMeta(() => {
   return {
-    title: "Teams",
+    title: "Equipes",
   };
 });
 </script>

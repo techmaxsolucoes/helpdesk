@@ -60,27 +60,27 @@ import LucidePointer from "~icons/lucide/pointer";
 const isExpanded = ref(true);
 const items = [
   {
-    name: "Details",
+    name: "Detalhes",
     component: TicketDetails,
     icon: LucideInfo,
   },
   {
-    name: "Actions",
+    name: "Ações",
     component: TicketActions,
     icon: LucidePointer,
   },
   {
-    name: "Contact",
+    name: "Contato",
     component: TicketContact,
     icon: LucideContact2,
   },
   {
-    name: "History",
+    name: "Histórico",
     component: TicketHistory,
     icon: LucideHistory,
   },
   {
-    name: "Views",
+    name: "Visualizações",
     component: TicketViews,
     icon: LucideView,
   },

@@ -40,38 +40,38 @@ const configStore = useConfigStore();
 const step = ref(0);
 const steps = [
   {
-    title: "Welcome to Frappe Helpdesk! 🎉",
+    title: "Bem vindo ao TMX Helpdesk! 🎉",
     component: OnboardingIntro,
   },
   {
-    title: "Begin with a name! 🖋️",
+    title: "Comece com o seu nome! 🖋️",
     component: SetupName,
   },
   {
-    title: "Let's set a logo 💫",
+    title: "Vamos deixar com a sua marca 💫",
     component: SetupLogo,
   },
   {
-    title: "How about a Favicon? 🌏",
+    title: "E que tal um favicon? 🌏",
     component: SetupFavicon,
   },
   {
-    title: "Did you know? 💡",
+    title: "Você sabia que? 💡",
     component: SetupSkipEmail,
   },
   {
-    title: "Let's setup an email 📬",
+    title: "Vamos configurar um email 📬",
     component: SetupEmail,
   },
   {
-    title: "That's it for now! 🙏",
+    title: "Isso é tudo por hora! 🙏",
     component: SuccessMessage,
   },
 ];
 const actions = computed(() =>
   [
     {
-      label: "← Previous",
+      label: "← Voltar",
       appearance: "minimal",
       variant: "ghost",
       onClick() {
@@ -80,7 +80,7 @@ const actions = computed(() =>
       condition: step.value + 1 > 1 && step.value + 1 <= steps.length,
     },
     {
-      label: "Next →",
+      label: "Avançar →",
       appearance: "primary",
       variant: "solid",
       onClick() {
@@ -89,7 +89,7 @@ const actions = computed(() =>
       condition: step.value + 1 < steps.length,
     },
     {
-      label: "Finish ✓",
+      label: "Finalizar ✓",
       variant: "solid",
       onClick() {
         finish();

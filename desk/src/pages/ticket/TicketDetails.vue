@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <div class="border-l">
       <span>
-        <TicketSidebarHeader title="Details" />
+        <TicketSidebarHeader title="Detalhes" />
         <div class="mx-5 my-6 flex flex-col justify-between gap-3.5 text-base">
           <div class="space-y-1.5">
             <span class="block text-sm text-gray-700">ID</span>
@@ -11,19 +11,19 @@
             </span>
           </div>
           <div v-if="data.customer" class="space-y-1.5">
-            <span class="block text-sm text-gray-700">Customer</span>
+            <span class="block text-sm text-gray-700">Cliente</span>
             <span class="block break-words font-medium text-gray-900">
               {{ data.customer }}
             </span>
           </div>
           <div class="space-y-1.5">
-            <span class="block text-sm text-gray-700">First response</span>
+            <span class="block text-sm text-gray-700">Primeira resposta em</span>
             <span class="mr-2 font-medium text-gray-900">
               {{ dayjs(data.first_responded_on || data.response_by).short() }}
             </span>
             <Badge
               v-if="!data.first_responded_on"
-              label="Due"
+              label="Pendente"
               theme="orange"
               variant="outline"
             />
@@ -31,7 +31,7 @@
               v-else-if="
                 dayjs(data.first_responded_on).isBefore(dayjs(data.response_by))
               "
-              label="Fulfilled"
+              label="Realizado"
               theme="green"
               variant="outline"
             />
@@ -41,13 +41,13 @@
             v-if="data.resolution_date || data.resolution_by"
             class="space-y-1.5"
           >
-            <span class="block text-sm text-gray-700">Resolution</span>
+            <span class="block text-sm text-gray-700">Resolução</span>
             <span class="mr-2 font-medium text-gray-900">
               {{ dayjs(data.resolution_date || data.resolution_by).short() }}
             </span>
             <Badge
               v-if="!data.resolution_date"
-              label="Due"
+              label="Pendente"
               theme="orange"
               variant="outline"
             />
@@ -55,14 +55,14 @@
               v-else-if="
                 dayjs(data.resolution_date).isBefore(data.resolution_by)
               "
-              label="Fulfilled"
+              label="Realizado"
               theme="green"
               variant="outline"
             />
             <Badge v-else label="Failed" theme="red" variant="outline" />
           </div>
           <div class="space-y-1.5">
-            <span class="block text-sm text-gray-700">Modified</span>
+            <span class="block text-sm text-gray-700">Modificado em</span>
             <Tooltip :text="dayjs(ticket.data.modified).long()">
               <span class="block break-words font-medium text-gray-900">
                 {{ dayjs(ticket.data.modified).fromNow() }}
@@ -70,7 +70,7 @@
             </Tooltip>
           </div>
           <div class="space-y-1.5">
-            <span class="block text-sm text-gray-700">Source</span>
+            <span class="block text-sm text-gray-700">Origem</span>
             <span class="block break-words font-medium text-gray-900">
               {{ ticket.data.via_customer_portal ? "Portal" : "Mail" }}
             </span>
@@ -101,7 +101,7 @@
         </span>
         <Autocomplete
           :options="o.store.dropdown"
-          :placeholder="`Select a ${o.label}`"
+          :placeholder="`Selecione um ${o.label}`"
           :value="data[o.field]"
           @change="update(o.field, $event.value)"
         />
@@ -137,17 +137,17 @@ const data = computed(() => ticket.data);
 const options = computed(() => [
   {
     field: "ticket_type",
-    label: "Ticket type",
+    label: "Tipo de ticket",
     store: useTicketTypeStore(),
   },
   {
     field: "priority",
-    label: "Priority",
+    label: "Prioridade",
     store: useTicketPriorityStore(),
   },
   {
     field: "agent_group",
-    label: "Team",
+    label: "Equipe",
     store: useTeamStore(),
   },
 ]);
@@ -165,7 +165,7 @@ function update(fieldname: string, value: string) {
     onSuccess: () => {
       emitter.emit("update:ticket");
       createToast({
-        title: "Ticket updated",
+        title: "Ticket atualizado!",
         icon: "check",
         iconClasses: "text-green-600",
       });

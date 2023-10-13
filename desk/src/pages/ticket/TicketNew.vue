@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <TicketBreadcrumbs :parent="route.meta.parent" title="New" />
+    <TicketBreadcrumbs :parent="route.meta.parent" title="Novo" />
     <div v-if="template.data?.about" class="mx-5 my-3">
       <div class="prose-f" v-html="sanitize(template.data.about)" />
     </div>
@@ -17,8 +17,8 @@
       <FormControl
         v-model="subject"
         type="text"
-        label="Subject"
-        placeholder="A short description"
+        label="Assunto"
+        placeholder="Uma breve descrição"
       />
     </div>
     <TicketNewArticles :search="subject" class="mx-5 mb-5" />
@@ -27,12 +27,12 @@
         ref="editor"
         v-model:attachments="attachments"
         v-model:content="description"
-        placeholder="Detailed explanation"
+        placeholder="Explicação detalhada"
         expand
       >
         <template #bottom-right>
           <Button
-            label="Submit"
+            label="Enviar"
             theme="gray"
             variant="solid"
             :disabled="
@@ -75,7 +75,7 @@ const templateFields = reactive({});
 const template = createResource({
   url: "helpdesk.helpdesk.doctype.hd_ticket_template.api.get_one",
   makeParams: () => ({
-    name: props.templateId || "Default",
+    name: props.templateId || "Padrão",
   }),
   auto: true,
 });
@@ -100,7 +100,7 @@ const ticket = createResource({
     const toVerify = [...fields, "subject", "description"];
     for (const field of toVerify) {
       if (isEmpty(params.doc[field.fieldname || field])) {
-        return `${field.label || field} is required`;
+        return `${field.label || field} é obrigatório`;
       }
     }
   },
@@ -122,6 +122,6 @@ function sanitize(html: string) {
 }
 
 usePageMeta(() => ({
-  title: "New Ticket",
+  title: "Novo ticket",
 }));
 </script>

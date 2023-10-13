@@ -77,7 +77,7 @@
           :to="{ name: CUSTOMER_PORTAL_NEW_TICKET }"
         >
           <Button
-            label="Still need help? Create a ticket"
+            label="Ainda precisa de ajuda? Crie um ticket"
             size="md"
             theme="gray"
             variant="solid"
@@ -135,9 +135,9 @@ const categoryId = computed(
 const subCategoryId = computed(
   () => article.data?.sub_category.name || route.query.subCategory
 );
-const pageTitle = computed(() => article.data?.title || "New article");
+const pageTitle = computed(() => article.data?.title || "Novo Artigo");
 const placeholder = computed(() =>
-  editMode.value ? "Write something..." : "Content is empty"
+  editMode.value ? "Escreva algo..." : "O conteúdo está vazio!"
 );
 const articleContent = ref("");
 const articleTitle = ref("");
@@ -205,8 +205,8 @@ const insertRes = createResource({
     };
   },
   validate(params) {
-    if (!params.doc.title) throw "Title is required";
-    if (!params.doc.content) throw "Content is required";
+    if (!params.doc.title) throw "O título é requerido!";
+    if (!params.doc.content) throw "O conteúdo é requerido!";
   },
   onSuccess(data) {
     router
@@ -218,7 +218,7 @@ const insertRes = createResource({
       })
       .then(() => router.go(0));
   },
-  onError: useError({ title: "Error creating article" }),
+  onError: useError({ title: "Erro ao criar o artigo!" }),
 });
 
 const setValueRes = createResource({
@@ -226,12 +226,12 @@ const setValueRes = createResource({
   onSuccess() {
     article.reload();
     createToast({
-      title: "Article updated",
+      title: "Artigo atualizado!",
       icon: "check",
       iconClasses: "text-green-500",
     });
   },
-  onError: useError({ title: "Error updating article" }),
+  onError: useError({ title: "Erro ao atualizar o artigo!" }),
 });
 
 const deleteRes = createResource({

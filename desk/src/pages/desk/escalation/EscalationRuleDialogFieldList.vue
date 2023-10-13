@@ -9,12 +9,12 @@
       >
         <div class="text-gray-800">{{ item.label }}</div>
         <SearchComplete
-          placeholder="Any"
+          placeholder="*"
           :doctype="item.doctype"
           :value="doc[item.key]"
           @change="(v) => onChange(item.key, v.value)"
         />
-        <span v-if="index + 1 < items.length" class="text-gray-600"> and </span>
+        <span v-if="index + 1 < items.length" class="text-gray-600"> e </span>
       </div>
     </div>
   </div>

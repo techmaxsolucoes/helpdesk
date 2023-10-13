@@ -7,24 +7,24 @@
       </div>
     </div>
     <div class="flex items-center gap-2 text-sm text-gray-600">
-      <div class="text-gray-600">Created</div>
+      <div class="text-gray-600">Criado em</div>
       <div class="text-gray-800">
         {{ dayjs(creation).fromNow() }}
       </div>
       <div class="text-base text-gray-300">|</div>
-      <div class="text-gray-600">Modified</div>
+      <div class="text-gray-600">Modificado em</div>
       <div class="text-gray-800">
         {{ dayjs(modified).fromNow() }}
       </div>
       <div class="text-base text-gray-300">|</div>
       <Icon icon="lucide:thumbs-up" class="h-4 w-4" />
-      <div class="text-gray-600">Likes</div>
+      <div class="text-gray-600">Curtidas</div>
       <div class="text-gray-800">
         {{ likes }}
       </div>
       <div class="text-base text-gray-300">|</div>
       <Icon icon="lucide:thumbs-down" class="h-4 w-4" />
-      <div class="text-gray-600">Dislikes</div>
+      <div class="text-gray-600">Oposições</div>
       <div class="text-gray-800">
         {{ dislikes }}
       </div>

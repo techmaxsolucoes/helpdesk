@@ -142,11 +142,11 @@ class HDTicket(Document):
 			return query
 
 		return {
-			"Due date": ("resolution_by", Order.asc),
-			"Created on": ("creation", Order.asc),
-			"High to low priority": lambda q: by_priority(q, Order.asc),
-			"Low to high priority": lambda q: by_priority(q, Order.desc),
-			"Last modified on": "modified",
+			"Data de vencimento": ("resolution_by", Order.asc),
+			"Criado em": ("creation", Order.asc),
+			"Da maior para a menor prioridade": lambda q: by_priority(q, Order.asc),
+			"Da menor para a maior prioridade": lambda q: by_priority(q, Order.desc),
+			"Pela última data de modificação": "modified",
 		}
 
 	def publish_update(self):

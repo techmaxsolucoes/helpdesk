@@ -7,7 +7,7 @@
       <template #right>
         <div class="space-x-2">
           <Button
-            label="Edit"
+            label="Editar"
             theme="gray"
             variant="outline"
             @click="showEdit = !showEdit"
@@ -17,7 +17,7 @@
             </template>
           </Button>
           <Button
-            label="Add new"
+            label="Adicionar novo"
             theme="gray"
             variant="solid"
             @click="showNewSubCategory = !showNewSubCategory"
@@ -31,7 +31,7 @@
     </KnowledgeBaseCategoryHeader>
     <EmptyMessage
       v-if="isEmpty(subCategories.data)"
-      message="This category is empty"
+      message="Esta categoria esta vazia!"
     />
     <div v-else class="gap-4.5 grid grid-cols-3 px-5">
       <HCard
@@ -62,16 +62,16 @@
               />
               <FormControl
                 v-model="category.doc.category_name"
-                placeholder="A brief guide"
+                placeholder="Um pequeno guia sobre ..."
                 type="text"
               />
             </div>
           </div>
           <div class="space-y-2">
-            <div class="text-xs text-gray-700">Description</div>
+            <div class="text-xs text-gray-700">Descrição</div>
             <FormControl
               v-model="category.doc.description"
-              placeholder="A short description"
+              placeholder="Uma breve descrição"
               type="textarea"
             />
           </div>

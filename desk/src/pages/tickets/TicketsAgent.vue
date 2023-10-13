@@ -3,7 +3,7 @@
     <PageTitle title="Tickets">
       <template #right>
         <RouterLink :to="{ name: 'TicketAgentNew' }">
-          <Button label="New ticket" theme="gray" variant="solid">
+          <Button label="Novo ticket" theme="gray" variant="solid">
             <template #prefix>
               <LucidePlus class="h-4 w-4" />
             </template>
@@ -17,7 +17,7 @@
         <FilterPopover doctype="HD Ticket" />
         <Dropdown :options="sortOptions">
           <template #default>
-            <Button :label="getOrder() || 'Sort'" variant="outline" size="sm">
+            <Button :label="getOrder() || 'Ordenar'" variant="outline" size="sm">
               <template #prefix>
                 <LucideArrowDownUp class="h-4 w-4" />
               </template>
@@ -71,7 +71,7 @@ const tickets = createListManager({
         outgoing: d.count_msg_outgoing,
         comments: d.count_comment,
       };
-      d.source = d.via_customer_portal ? "Customer portal" : "Email";
+      d.source = d.via_customer_portal ? "Portal de cliente" : "Email";
     }
     return data;
   },
@@ -103,7 +103,7 @@ const columns = [
     text: "text-sm",
   },
   {
-    label: "Subject",
+    label: "Assunto",
     key: "subject",
     width: "w-96",
     text: "text-gray-900",
@@ -114,67 +114,67 @@ const columns = [
     width: "w-20",
   },
   {
-    label: "Priority",
+    label: "Prioridade",
     key: "priority",
     width: "w-32",
   },
   {
-    label: "Type",
+    label: "Tipo",
     key: "ticket_type",
     width: "w-36",
   },
   {
-    label: "Team",
+    label: "Equipe",
     key: "agent_group",
     width: "w-36",
   },
   {
-    label: "Contact",
+    label: "Contato",
     key: "contact",
     width: "w-36",
   },
   {
-    label: "Agreement status",
+    label: "Situação do SLA",
     key: "agreement_status",
     width: "w-36",
   },
   {
-    label: "First response",
+    label: "Primeira resposta",
     key: "response_by",
     width: "w-32",
   },
   {
-    label: "Resolution",
+    label: "Resolução",
     key: "resolution_by",
     width: "w-32",
   },
   {
-    label: "Customer",
+    label: "Cliente",
     key: "customer",
     width: "w-36",
   },
   {
-    label: "Source",
+    label: "Origem",
     key: "source",
     width: "w-36",
   },
   {
-    label: "Assignee",
+    label: "Escalado para",
     key: "assignee",
     width: "w-40",
   },
   {
-    label: "Conversation",
+    label: "Conversação",
     key: "conversation",
     width: "w-28",
   },
   {
-    label: "Last modified",
+    label: "Última modificação",
     key: "modified",
     width: "w-32",
   },
   {
-    label: "Created",
+    label: "Criado em",
     key: "creation",
     width: "w-36",
   },

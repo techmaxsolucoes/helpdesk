@@ -14,11 +14,11 @@ import { onMounted } from "vue";
 import { capture } from "@/telemetry";
 
 const text =
-	"We're excited to have you join us and explore the world of efficient customer support. \
-	We are here to revolutionize the way you handle customer inquiries, streamline ticket \
-	management, and deliver outstanding service.";
+	"Nós estamos felizes que você está se juntando a nós e queira explorar um mundo mais eficiente de atendimento ao cliente. \
+	Nós estamos aqui para revolucionar a maneira como você gestiona o suporte aos seus clientes, facilitando a gestão de tickets \
+	e entregando um serviço de qualidade excepcional.";
 const subText =
-	"Once again, welcome to Frappe Helpdesk! Let's hope for a long and smooth journey!";
+	"Mais uma vez, bem vindo ao TMX Helpdesk! Esperamos que a sua jornada seja leve e doce!";
 
 onMounted(() => capture("onboarding_started"));
 </script>

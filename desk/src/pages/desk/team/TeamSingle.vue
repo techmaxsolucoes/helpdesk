@@ -6,7 +6,7 @@
           <BreadCrumbs
             :items="[
               {
-                label: 'Teams',
+                label: 'Equipes',
                 route: {
                   name: AGENT_PORTAL_TEAM_LIST,
                 },
@@ -20,7 +20,7 @@
         <template #right>
           <div class="flex items-center gap-2">
             <Button
-              label="Add member"
+              label="Adicionar membro"
               theme="gray"
               variant="solid"
               @click="showAddMember = !showAddMember"
@@ -42,7 +42,7 @@
       <div class="my-6">
         <div class="container">
           <div class="space-y-4">
-            <div class="text-lg font-medium">Members</div>
+            <div class="text-lg font-medium">Membros</div>
             <div v-if="!isEmpty(team.doc?.users)" class="flex flex-wrap gap-2">
               <Button
                 v-for="member in team.doc?.users"
@@ -59,13 +59,13 @@
               </Button>
             </div>
             <div v-else class="text-base text-gray-900">
-              No members found in team: {{ teamId }}
+              Nenhum membro pertence à equipe: {{ teamId }}
             </div>
             <Switch
               v-model="ignoreRestrictions"
               size="md"
-              label="Bypass restrictions"
-              description="Members of this team will be able to bypass any team-wise restriction"
+              label="Ignorar restrições?"
+              description="Membros deste time não terão permissões baseadas no time aplicadas!"
               class="rounded border p-4"
             />
           </div>
@@ -77,11 +77,11 @@
         <div class="space-y-2">
           <FormControl
             v-model="title"
-            label="Title"
-            placeholder="Product Experts"
+            label="Título"
+            placeholder="Vendas"
           />
           <Button
-            label="Confirm"
+            label="Confirmar"
             theme="gray"
             variant="solid"
             class="w-full"
@@ -108,7 +108,7 @@
             </div>
             <Button
               :disabled="!!team.doc?.users.find((u) => u.user === agent.user)"
-              label="Add"
+              label="Adicionar"
               theme="gray"
               variant="outline"
               @click="addMember(agent.user)"
@@ -160,7 +160,7 @@ const team = createDocumentResource({
   name: props.teamId,
   auto: true,
   setValue: {
-    onError: useError({ title: "Error updating team" }),
+    onError: useError({ title: "Erro ao atualizar a equipe!" }),
   },
   delete: {
     onSuccess() {
@@ -168,7 +168,7 @@ const team = createDocumentResource({
         name: AGENT_PORTAL_TEAM_LIST,
       });
     },
-    onError: useError({ title: "Error deleting team" }),
+    onError: useError({ title: "Erro ao deletar a equipe!" }),
   },
 });
 const title = computed({
@@ -192,24 +192,24 @@ const ignoreRestrictions = computed({
 });
 const docOptions = [
   {
-    label: "Rename",
+    label: "Renomar",
     icon: "edit-3",
     onClick: () => (showRename.value = !showRename.value),
   },
   {
-    label: "Delete",
+    label: "Deletar",
     icon: "trash-2",
     onClick: () => (showDelete.value = !showDelete.value),
   },
 ];
-const renameDialogOptions = { title: "Rename team" };
-const addMemberDialogOptions = { title: "Add member" };
+const renameDialogOptions = { title: "Renomear a equipe" };
+const addMemberDialogOptions = { title: "Adicionar membro" };
 const deleteDialogOptions = {
-  title: "Delete team",
-  message: `Are you sure you want to delete ${props.teamId}? This action cannot be reversed!`,
+  title: "Deletar equipe",
+  message: `Você tem certeza de que deseja deletar a equipe ${props.teamId}? Essa ação é irreversível!`,
   actions: [
     {
-      label: "Confirm",
+      label: "Confirmar",
       theme: "red",
       variant: "solid",
       onClick: () => team.delete.submit(),
@@ -228,9 +228,9 @@ function renameTeam() {
       };
     },
     validate(params) {
-      if (!params.new_name) return "New title is required";
+      if (!params.new_name) return "Novo título é requirido!";
       if (params.new_name === params.old_name)
-        return "New and old title cannot be same";
+        return "O novo título e o título antigo não podem ser os mesmos!";
     },
     onSuccess() {
       router.replace({
@@ -240,7 +240,7 @@ function renameTeam() {
         },
       });
     },
-    onError: useError({ title: "Error renaming team" }),
+    onError: useError({ title: "Erro ao renomear time!" }),
   });
 
   r.submit();

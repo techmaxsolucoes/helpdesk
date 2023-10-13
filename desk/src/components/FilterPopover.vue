@@ -1,7 +1,7 @@
 <template>
   <NestedPopover>
     <template #target>
-      <Button label="Filters" theme="gray" variant="outline">
+      <Button label="Filtros" theme="gray" variant="outline">
         <template #prefix>
           <LucideListFilter class="h-4 w-4" />
         </template>
@@ -22,13 +22,13 @@
           >
             <div class="flex items-center gap-2">
               <div class="w-13 pl-2 text-end text-base text-gray-600">
-                {{ i == 0 ? "Where" : "And" }}
+                {{ i == 0 ? "Onde" : "E" }}
               </div>
               <div id="fieldname" class="!min-w-[140px]">
                 <Autocomplete
                   :value="f.field.fieldname"
                   :options="fields"
-                  placeholder="Filter by..."
+                  placeholder="Filtrar por..."
                   @change="(e) => updateFilter(e, i)"
                 />
               </div>
@@ -45,14 +45,14 @@
                   v-if="typeLink.includes(f.field.fieldtype)"
                   :doctype="f.field.options"
                   :value="f.value"
-                  placeholder="Value"
+                  placeholder="Valor"
                   @change="(v) => (f.value = v.value)"
                 />
                 <component
                   :is="getValSelect(f.field.fieldtype, f.field.options)"
                   v-else
                   v-model="f.value"
-                  placeholder="Value"
+                  placeholder="Valor"
                 />
               </div>
             </div>
@@ -62,7 +62,7 @@
             v-else
             class="mb-3 flex h-7 items-center px-3 text-sm text-gray-600"
           >
-            Empty - Choose a field to filter by
+            Vazio - Selecione um campo para filtrar por
           </div>
           <div class="flex items-center justify-between gap-2">
             <Autocomplete
@@ -75,7 +75,7 @@
                 <Button
                   class="!text-gray-600"
                   variant="ghost"
-                  label="Add filter"
+                  label="Adicionar filtro"
                   @click="() => togglePopover()"
                 >
                   <template #prefix>
@@ -88,7 +88,7 @@
               v-if="storage.size"
               class="!text-gray-600"
               variant="ghost"
-              label="Clear all filter"
+              label="Remover filtros"
               @click="() => clearfilter(close)"
             />
           </div>
@@ -129,10 +129,10 @@ function getOperators(fieldtype) {
   if (typeString.includes(fieldtype)) {
     options.push(
       ...[
-        { label: "Equals", value: "equals" },
-        { label: "Not Equals", value: "not equals" },
-        { label: "Like", value: "like" },
-        { label: "Not Like", value: "not like" },
+        { label: "É igual a", value: "equals" },
+        { label: "É diferente de", value: "not equals" },
+        { label: "Parece com", value: "like" },
+        { label: "Não parece com", value: "not like" },
       ]
     );
   }
@@ -143,21 +143,21 @@ function getOperators(fieldtype) {
         { label: ">", value: ">" },
         { label: "<=", value: "<=" },
         { label: ">=", value: ">=" },
-        { label: "Equals", value: "equals" },
-        { label: "Not Equals", value: "not equals" },
+        { label: "Iqual a", value: "equals" },
+        { label: "Diferente de", value: "not equals" },
       ]
     );
   }
   if (typeSelect.includes(fieldtype) || typeLink.includes(fieldtype)) {
     options.push(
       ...[
-        { label: "Is", value: "is" },
-        { label: "Is Not", value: "is not" },
+        { label: "É", value: "is" },
+        { label: "Não é", value: "is not" },
       ]
     );
   }
   if (typeCheck.includes(fieldtype)) {
-    options.push(...[{ label: "Equals", value: "equals" }]);
+    options.push(...[{ label: "Igual a", value: "equals" }]);
   }
   return options;
 }

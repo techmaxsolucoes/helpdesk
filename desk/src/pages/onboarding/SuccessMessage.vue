@@ -1,14 +1,14 @@
 <template>
 	<div class="flex flex-col gap-4">
 		<div>
-			<div class="font-medium">Don't forget to star our GitHub repo</div>
+			<div class="font-medium">Não se esqueça de curtir o nosso repositório no GitHub</div>
 			<a class="text-sm text-gray-800" :href="github" target="_blank">
 				{{ github }}
 			</a>
 		</div>
 		<div>
 			<div class="font-medium">
-				If you find any bugs, report them at the issue tracker
+				Se você encontrar qualquer problema, registre ele no nosso gerenciador de tickets!
 			</div>
 			<a class="text-sm text-gray-800" :href="issues" target="_blank">
 				{{ issues }}
@@ -16,14 +16,14 @@
 		</div>
 		<div>
 			<div class="font-medium">
-				For any queries or support, reach out to our support portal
+				Para qualquer pergunta ou suporte, você pode nos encontrar no nosso portal de suporte!
 			</div>
 			<a class="text-sm text-gray-800" :href="support" target="_blank">
 				{{ support }}
 			</a>
 		</div>
 		<div>
-			<div class="font-medium">Or via our e-mail</div>
+			<div class="font-medium">Ou através do nosso email</div>
 			<a class="text-sm text-gray-800" :href="'mailto:' + email">
 				{{ email }}
 			</a>

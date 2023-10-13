@@ -13,8 +13,8 @@
       v-if="isEmpty(items.data)"
       class="flex grow select-none items-center justify-center text-base text-gray-700"
     >
-      📊 Oops, looks like there are no charts to display on the dashboard right
-      now.
+      📊 Oops, parece que ainda não temos dados suficientes para monstrar belos gráficos no
+      dashboard por hora!
     </div>
     <div v-else class="space-y-3 overflow-y-scroll p-5">
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -62,7 +62,7 @@ const items = createResource({
 });
 
 const dateInfo =
-  "📊 The information displayed in these charts are derived from data collected over the past 30 days";
+  "📊 Os dados mostrados nesses gráficos são derivados de dados coletados nos últimos 30 dias!";
 
 usePageMeta(() => {
   return {
